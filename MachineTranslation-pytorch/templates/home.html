@@ -1,0 +1,65 @@
+<head>
+    <meta charset="UTF-8">
+    <title>中英文机器翻译</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#btn1").click(function(){
+                $.post("",
+                {sentence: $("#inputText1").val()},
+                function(data, status){
+                    $("#outputText1").text(data)
+                })
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div class="container-fluid">
+
+        <br>
+        <br>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-center">
+                    中英文机器翻译
+                </h2>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div class="col-md-12">
+                <form role="form">
+                    <div class="form-group">
+
+                        <label for="inputText1">
+                            请输入一句英文：
+                        </label>
+                        <input type="text" class="form-control" id="inputText1" />
+                    </div>
+                </form>
+                <button type="button" class="btn btn-primary" id="btn1">
+                    翻译
+                </button>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div class="col-md-12">
+                <label for="outputText1">
+                    中文翻译为：
+                </label>
+                <p id="outputText1"></p>
+            </div>
+        </div>
+    </div>
+</body>

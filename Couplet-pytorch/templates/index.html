@@ -1,0 +1,75 @@
+<head>
+    <meta charset="UTF-8">
+    <title>对联</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+        function infer(event){
+            $.post(
+                "",
+                {sentence: $("#inputText1").val()},
+                function(data, status){
+                    $("#outputText1").text(data)
+                }
+            )
+        }
+        
+        $(document).ready(function(){
+            $("#btn1").on("click", infer)
+            $("#inputText1").on("keypress", function(event){
+                if(event.keyCode == 13){
+                    infer()
+                }
+            })
+        })
+        
+    </script>
+</head>
+
+<body>
+    <div class="container-fluid">
+
+        <br>
+        <br>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-center">
+                    对联
+                </h2>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div class="col-md-12">
+                <form role="form" onsubmit="return false;">
+                    <div class="form-group">
+
+                        <label for="inputText1">
+                            上联：
+                        </label>
+                        <input type="text" class="form-control" id="inputText1" />
+                    </div>
+                </form>
+                <button type="button" class="btn btn-primary" id="btn1">
+                    确定
+                </button>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div class="col-md-12">
+                <label for="outputText1">
+                    下联：
+                </label>
+                <p id="outputText1"></p>
+            </div>
+        </div>
+    </div>
+</body>
